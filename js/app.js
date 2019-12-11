@@ -1,6 +1,30 @@
 'use strict';
 console.log('js is working');
 
+
+//my time iteration * save in case we want to use this
+// var amTime = 6;
+// for(var i = 0; i < 6; i++){
+//   console.log((amTime++) + 'am');
+// }
+// var pmTime = [12, 1, 2, 3, 4, 5, 6]
+// for(var j=0; j < 6; j++){
+//   console.log((pmTime)[j] + 'pm');
+// }
+
+// var addTime = document.getElementById('2ndtd');
+// addTime.textContent = amTime;
+
+var times = ['6am: ','7am: ','8am: ','9am: ','10am: ','11am: ','12pm:','1pm: ','2pm: ','3pm:','4pm:','5pm: ','6pm: '];
+
+// var timesActual = 1
+// var timeLoop = function(){
+//   for(var i = 0; i < 12; i++){
+  
+//   }
+
+
+
 //find the product of average cookies per person * people per hour
 var cookiesPerHourCalc = function(){
   var perHour = (this.avgCookiesPerCust * this.averageCust());
@@ -66,3 +90,74 @@ paris.averageCust();
 paris.cookiesPerHour();
 lima.averageCust();
 lima.cookiesPerHour();
+
+
+
+
+function addSeattle(){
+  var addCity = document.getElementById('seattle');
+  addCity.textContent = 'Seattle';
+  var cityContent = addCity.innerHTML;
+  addCity.innerHTML = times [0] + cityContent + ' Hourly customers: ' + seattle.averageCust() + ' / Total cookies purchased this hour: ' + seattle.cookiesPerHour();
+}
+function addTokyo(){
+  var addCity = document.getElementById('tokyo');
+  addCity.textContent = 'Tokyo';
+  var cityContent = addCity.innerHTML;
+  addCity.innerHTML = times [0] + cityContent + ' Hourly customers: ' + tokyo.averageCust() + ' / Total cookies purchased this hour: ' + tokyo.cookiesPerHour();
+}
+function addDubai(){
+  var addCity = document.getElementById('dubai');
+  addCity.textContent = 'Dubai';
+  var cityContent = addCity.innerHTML;
+  addCity.innerHTML = times [0] + cityContent + ' Hourly customers: ' + dubai.averageCust() + ' / Total cookies purchased this hour: ' + dubai.cookiesPerHour();
+}
+function addParis(){
+  var addCity = document.getElementById('paris');
+  addCity.textContent = 'Paris';
+  var cityContent = addCity.innerHTML;
+  addCity.innerHTML = times [0] + cityContent + ' Hourly customers: ' + paris.averageCust() + ' / Total cookies purchased this hour: ' + paris.cookiesPerHour();
+}
+function addLima(){
+  var addCity = document.getElementById('lima');
+  addCity.textContent = 'Lima';
+  var cityContent = addCity.innerHTML;
+  addCity.innerHTML = times [0] + cityContent + ' Hourly customers: ' + lima.averageCust() + ' / Total cookies purchased this hour: ' + lima.cookiesPerHour();
+}
+
+addSeattle();
+addTokyo();
+addDubai();
+addParis();
+addLima();
+
+
+
+
+
+
+
+
+//day2--------------------------------------------------
+
+
+
+
+//constructor ex
+function Cities(minCust, maxCust, avgCookiesPerCust, averageCust, cookiesPerHour){
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCookiesPerCust = avgCookiesPerCust;
+  this.averageCust = averageCust;
+  this.cookiesPerHour = cookiesPerHour;
+}
+
+
+
+
+// //from class..
+// function Pet(breedOfThisPet, weight){
+//   this.breed = breedOfThisPet;
+//   this.weight = weight;
+// }
+// var toby = new Pet('american shorthair', 35)
