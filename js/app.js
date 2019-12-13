@@ -89,16 +89,22 @@ function makeFooterRow(){
   var salesTable = document.getElementById('shopTable');
   var newFooterRow = document.createElement('tfoot');
   newFooterRow.textContent = 'Hourly total';
-  var total = 0;
+
   //add all total cookes for each hour for each city
+  var grandTotal = 0;
   for(var i = 0; i < times.length; i++){
+    var total = 0;
     for(var j = 0; j < shops.length; j++){
       total = total + shops[j].hourlyCookies[i];
     }
     var newTd = document.createElement('td');
     newTd.textContent = total;
     newFooterRow.appendChild(newTd);
+    grandTotal = grandTotal + total;
   }
+  newTd = document.createElement('td');
+  newTd.textContent = grandTotal;
+  newFooterRow.appendChild(newTd);
   salesTable.appendChild(newFooterRow);
 }
 makeFooterRow();
