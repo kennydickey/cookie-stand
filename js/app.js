@@ -35,9 +35,6 @@ Shop.prototype.calcCookiesPerHour = function(){
 
 var shops = [seattle, tokyo, dubai, paris, lima];
 
-
-
-
 //header created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function makeHeaderRow(){
   var salesTable = document.getElementById('shopTable');
@@ -57,7 +54,6 @@ function makeHeaderRow(){
   salesTable.appendChild(newHeaderRow);
 }
 makeHeaderRow();
-//header created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Shop.prototype.makeShopsRows = function(){
   this.calcCookiesPerHour();
@@ -78,12 +74,6 @@ Shop.prototype.makeShopsRows = function(){
 for(var i = 0; i < shops.length; i++){
   shops[i].makeShopsRows();
 }
-
-
-// for(var i = 0; i < Shops.length; i++){
-//   // Shops[i].calcCookiesPerHour();
-//   Shops[i].render();
-// }
 
 function makeFooterRow(){
   var salesTable = document.getElementById('shopTable');
@@ -109,8 +99,6 @@ function makeFooterRow(){
 }
 makeFooterRow();
 
-
 //title created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var shopTitle = document.getElementById('shop-holder');
 shopTitle.textContent = 'My Cookie Shop';
-//title created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
