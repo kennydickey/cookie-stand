@@ -108,7 +108,6 @@ shopTitle.textContent = 'My Cookie Shop';
 //-----------------FORM-----------------------------------------
 
 
-
 // take in the event parameter so that we can prevent the default
 function handleFormSubmitted(event) {
   event.preventDefault();
@@ -130,7 +129,6 @@ function handleFormSubmitted(event) {
   // newCity.render();
   newCity.makeShopsRows();
   newCity.calcCookiesPerHour();
-  var updateTotal = document.getElementById
 }
 
 // set up event listener on the form
