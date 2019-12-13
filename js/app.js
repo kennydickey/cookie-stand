@@ -102,3 +102,40 @@ makeFooterRow();
 //title created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var shopTitle = document.getElementById('shop-holder');
 shopTitle.textContent = 'My Cookie Shop';
+
+
+
+//-----------------FORM-----------------------------------------
+
+
+
+// take in the event parameter so that we can prevent the default
+function handleFormSubmitted(event) {
+  event.preventDefault();
+  console.log(event);
+  // actually add a new pet to our table
+
+  // get the data about the new pet from the inputs
+  var cityInput = document.getElementById('city');
+  var shopName = cityInput['value'];
+  var minInput = document.getElementById('min');
+  var minCust = minInput.value;
+  var maxInput = document.getElementById('max');
+  var maxCust = maxInput.value;
+  var avgInput = document.getElementById('avg');
+  var averageCookies = avgInput.value;
+  // use our constructor to create a new pet instance
+  var newCity = new Shop(shopName, minCust, maxCust, averageCookies);
+  // render that pet instance to the page
+  // newCity.render();
+  newCity.makeShopsRows();
+  newCity.calcCookiesPerHour();
+  var updateTotal = document.getElementById
+}
+
+// set up event listener on the form
+// 1. Which element?
+var formElement = document.getElementById('newCities');
+// 2. Which event am I listening for?
+// 3. What code should run when that event happens?
+formElement.addEventListener('submit', handleFormSubmitted);
