@@ -38,23 +38,26 @@ var shops = [seattle, tokyo, dubai, paris, lima];
 //header created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function makeHeaderRow(){
   var salesTable = document.getElementById('shopTable');
-  var newHeaderRow = document.createElement('tr');
-  var newTh = document.createElement('th');
-  newTh.textContent = '';
-  newHeaderRow.appendChild(newTh);
-  salesTable.appendChild(newHeaderRow);
+  var addHeaderRow = document.createElement('tr');
+  var addTh = document.createElement('th');
+  addTh.textContent = 'Time';
+  addHeaderRow.appendChild(addTh);
+  salesTable.appendChild(addHeaderRow);
   for(var i = 0; i < times.length; i++){
-    var newHeader = document.createElement('th');
-    newHeader.textContent = times[i];
-    newHeaderRow.appendChild(newHeader);
+    var addHeader = document.createElement('th');
+    addHeader.textContent = times[i];
+    addHeaderRow.appendChild(addHeader);
   }
-  newTh = document.createElement('th');
-  newTh.textContent = 'totals';
-  newHeaderRow.appendChild(newTh);
-  salesTable.appendChild(newHeaderRow);
+  addTh = document.createElement('th');
+  addTh.textContent = 'totals';
+  addHeaderRow.appendChild(addTh);
+  salesTable.appendChild(addHeaderRow);
 }
 makeHeaderRow();
+//--------------------------------------------------
 
+
+//prototypes----------------------------------------
 Shop.prototype.makeShopsRows = function(){
   this.calcCookiesPerHour();
   var citiesTable = document.getElementById('shopTable');
@@ -62,7 +65,6 @@ Shop.prototype.makeShopsRows = function(){
   var newTd = document.createElement('td');
   newTd.textContent = this.shopName;
   newTr.appendChild(newTd);
-  // shops[i].hourlyCookies.length
   for(var i = 0; i < this.hourlyCookies.length; i++){
     newTd = document.createElement('td');
     newTd.textContent = this.hourlyCookies[i];
@@ -75,11 +77,18 @@ for(var i = 0; i < shops.length; i++){
   shops[i].makeShopsRows();
 }
 
-function makeFooterRow(){
-  var salesTable = document.getElementById('shopTable');
-  var newFooterRow = document.createElement('tfoot');
-  newFooterRow.textContent = 'Hourly total';
+//title created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+var shopTitle = document.getElementById('shop-holder');
+shopTitle.textContent = 'My Cookie Shop';
 
+//-----------------FORM-----------------------------------------
+
+//new  footer prototype----------------------------------
+Shop.prototype.updateTotal = function(){
+  var salesTable = document.getElementById('shopTable');
+  // var newFooterRow = document.createElement('tfoot');
+  var newFooterRow = document.getElementById('test');
+  newFooterRow.textContent = 'Hourly total';
   //add all total cookes for each hour for each city
   var grandTotal = 0;
   for(var i = 0; i < times.length; i++){
@@ -96,17 +105,8 @@ function makeFooterRow(){
   newTd.textContent = grandTotal;
   newFooterRow.appendChild(newTd);
   salesTable.appendChild(newFooterRow);
-}
-makeFooterRow();
-
-//title created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-var shopTitle = document.getElementById('shop-holder');
-shopTitle.textContent = 'My Cookie Shop';
-
-
-
-//-----------------FORM-----------------------------------------
-
+};
+//---------------------------------------------
 
 // take in the event parameter so that we can prevent the default
 function handleFormSubmitted(event) {
@@ -129,11 +129,15 @@ function handleFormSubmitted(event) {
   // newCity.render();
   newCity.makeShopsRows();
   newCity.calcCookiesPerHour();
+  var footer = document.getElementsByTagName('tfoot');
+  console.log(footer);
+  footer.innerHTML = '';
+  shops.push(newCity);
+
+  for(var j = 0; j < shops.length; j++){
+    shops[j].updateTotal();
+  }
 }
 
-// set up event listener on the form
-// 1. Which element?
 var formElement = document.getElementById('newCities');
-// 2. Which event am I listening for?
-// 3. What code should run when that event happens?
 formElement.addEventListener('submit', handleFormSubmitted);
