@@ -2,9 +2,15 @@ html{
   background-color: rgba(100,100,220,0.2)
 }
 
+body {
+  font-family: Times, serif;
+  color: #111;
+}
+
 h1{
   background-color: rgba(200,100,100,0.2);
   text-align: center;
+  color: #eff;
 }
 
 .contactInfo{
@@ -15,6 +21,7 @@ h1{
 .rightImage{
   float: right;
   margin-right: 50px;
+  margin-bottom: 5px;
 }
 .leftImage{
   margin-left: 50px;
@@ -31,7 +38,9 @@ tr,td{
   width: 800px;
   padding: 5px;
   border-spacing: 10px;
-  background-color: #efefef;
+  background-color: rgba(50,100,100,0.3);
   border: 1px solid black;
   border-collapse: collapse;
+  font-family: Verdana, sans-serif;
+  color: #cff;
 }
