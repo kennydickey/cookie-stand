@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,18 +9,18 @@
 </head>
 <body>
 
-<form action="" id="newCities">
+<form action="none" id="newCities">
 <fieldset>
   <legend>Add a new city!</legend>  <!-- describes what goes into field set -->
   <label for="city">City</label>    
   <!-- for="" ^  has to match input id="" V-->
-  <input type="text" name="" id="city">
+  <input type="text" name="city" id="city">
   <label for="min">Min Customers</label>
-  <input type="number" name="" id="min">
+  <input type="number" name="min" id="min">
   <label for="max">Max Customers</label>
-  <input type="number" name="" id="max">
+  <input type="number" name="max" id="max">
   <label for="avg">Average Cookie Sale</label>
-  <input type="number" name="" id="avg">
+  <input type="number" name="max" id="avg">
   <button>Add City</button>
 </fieldset>
 </form>
@@ -32,9 +33,8 @@
       snake_case
     -->
   </div>
-  <table id="shopTable" width="400" cellpadding="1" cellspacing ="1" bgcolor="#efefef" border="2">
-    <tr>
-    </tr>
+  <table id="shopTable">
+    <tfoot id="test"></tfoot>
   </table>
 
   <script src="js/app.js"></script>
